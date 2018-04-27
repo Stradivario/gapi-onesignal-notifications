@@ -76,21 +76,27 @@ export class Notification {
 
     setContent(contents) {
         this.postBody.contents = contents;
+        return this;
     }
 
-    setIncludedSegments(included_segments: string[]) {
+    setIncludedSegments<T>(included_segments: T[]) {
         this.postBody.included_segments = included_segments;
+        return this;
     }
-    setExcludedSegments(excluded_segments: string[]) {
+
+    setExcludedSegments<T>(excluded_segments: string[]) {
         this.postBody.excluded_segments = excluded_segments;
+        return this;
     }
 
     setFilters(filters: any) {
         this.postBody.filters = filters;
+        return this;
     }
 
     setTargetDevices(include_player_ids: string[]) {
         this.postBody.include_player_ids = include_player_ids;
+        return this;
     }
 }
 

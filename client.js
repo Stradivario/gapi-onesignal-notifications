@@ -34,6 +34,7 @@ function checkCredential(credentialName, credential) {
     return false;
 }
 ;
+;
 class GapiOneSignalClientService {
     constructor(credentials) {
         if (typeof credentials !== 'object') {

@@ -29,6 +29,35 @@ function checkCredential(credentialName, credential): boolean {
     return false;
 };
 
+
+export interface DevicesData<T> {
+    players: Player<T>[];
+};
+
+export interface Player<T> {
+    id: string;
+    identifier: string;
+    session_count: number;
+    language: string;
+    timezone: number;
+    game_version: string;
+    device_os: string;
+    device_type: number;
+    device_model: string;
+    ad_id: string;
+    tags: T;
+    last_active: number;
+    playtime: number;
+    amount_spend: number;
+    created_at: number;
+    invalid_identifier: boolean;
+    badge_count: number;
+    sdk: string;
+    test_type: any;
+    ip: any;
+}
+
+
 export class GapiOneSignalClientService implements OneSignalClient {
     API_URI: string;
     app: any;
@@ -161,7 +190,7 @@ export class GapiOneSignalClientService implements OneSignalClient {
         return await this.basicRequest(this.API_URI + Constants.APPS_PATH + '/' + this.app.appId, this.userAuthKey, 'PUT', body);
     }
 
-    async viewDevices(query: { limit: number, offset: number }): Promise<any> {
+    async viewDevices<T>(query: { limit: number, offset: number }): Promise<DevicesData<T>> {
         if (!this.app) {
             throw 'You must define an "app" object.'
         }
