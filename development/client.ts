@@ -191,7 +191,7 @@ export class GapiOneSignalClientService implements OneSignalClient {
         return await this.basicRequest(this.API_URI + Constants.APPS_PATH + '/' + this.app.appId, this.userAuthKey, 'PUT', body);
     }
 
-    async viewDevices<T>(query: { limit: number, offset: number }): Promise<DevicesData<T>> {
+    async viewDevices<T>(query: { limit: number, offset: number }): Promise<{data: DevicesData<T>}> {
         if (!this.app) {
             throw 'You must define an "app" object.'
         }

@@ -50,7 +50,9 @@ export declare class GapiOneSignalClientService implements OneSignalClient {
     viewDevices<T>(query: {
         limit: number;
         offset: number;
-    }): Promise<DevicesData<T>>;
+    }): Promise<{
+        data: DevicesData<T>;
+    }>;
     viewDevice(deviceId: string): Promise<any>;
     addDevice(body: any): Promise<any>;
     editDevice(deviceId: string, body: any): Promise<any>;
