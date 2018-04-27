@@ -74,6 +74,7 @@ export class Notification {
             'exclamation mark to the begging of the name, if you want to set it : !' + name;
         }
         this.postBody[name] = value;
+        return this;
     }
 
     setContent(contents) {

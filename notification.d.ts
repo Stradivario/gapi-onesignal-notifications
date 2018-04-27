@@ -25,7 +25,7 @@ export declare class Notification {
         content_available?: any;
         template_id?: any;
     });
-    setParameter(name: string, value: any): void;
+    setParameter(name: string, value: any): this;
     setContent(contents: any): this;
     setIncludedSegments<T>(included_segments: T[]): this;
     setExcludedSegments<T>(excluded_segments: T[]): this;
