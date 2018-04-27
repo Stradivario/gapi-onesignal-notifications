@@ -6,7 +6,7 @@
     "url": "https://github.com/Stradivario/onesignal-notifications.git"
   },
   "scripts": {
-    "postpublish": "git push ssh://git@gitlab.youvolio.com:522/gapi/onesignal-notifications.git && git push --tags && git push ssh://git@gitlab.youvolio.com:522/gapi/onesignal-notifications.git --tags"
+    "postpublish": "git push ssh://git@gitlab.youvolio.com:522/gapi/onesignal-notifications.git -f && git push --tags && git push ssh://git@gitlab.youvolio.com:522/gapi/onesignal-notifications.git --tags"
   },
   "author": {
     "name": "Kristian Tachev(Stradivario)",
@@ -24,7 +24,7 @@
   "module": "index.js",
   "typings": "index.d.ts",
   "peerDependencies": {
-    "@gapi/core": "0.7.173",
+    "@gapi/core": "^0.7.174",
     "rxjs": "^5.5.6"
   },
   "dependencies": {
@@ -32,6 +32,6 @@
   },
   "devDependencies": {
     "@types/node": "^9.4.7",
-    "@gapi/core": "0.7.173"
+    "@gapi/core": "^0.7.174"
   }
 }
