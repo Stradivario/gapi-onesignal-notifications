@@ -34,11 +34,11 @@ interface ClientNotification {
 }
 
 export class Notification {
-    public initialBody: { contents: any, content_available: any, template_id: any };
+    public initialBody: { contents?: any, content_available?: any, template_id?: any };
     private postBody: PostBody;
     private allowed_fields: string[] = ALLOWED_FIELDS;
 
-    constructor(initialBody: { contents: any, content_available: any, template_id: any }) {
+    constructor(initialBody: { contents?: any, content_available?: any, template_id?: any }) {
         this.initialBody = initialBody;
         this.postBody = <any>{};
 
