@@ -34,31 +34,33 @@ interface ClientNotification {
 }
 
 export class Notification {
-    public initialBody;
+    public initialBody: { contents: any, content_available: any, template_id: any };
     private postBody: PostBody;
     private allowed_fields: string[] = ALLOWED_FIELDS;
 
-    constructor(initialBody) {
+    constructor(initialBody: { contents: any, content_available: any, template_id: any }) {
+        this.initialBody = initialBody;
+        this.postBody = <any>{};
 
         if (initialBody.constructor !== Object) {
             throw 'Body must be a JSON object';
         }
 
-        this.postBody = <any>{};
         if ('contents' in initialBody) {
-            this.postBody.contents = initialBody.contents;
+            this.postBody.contents = this.initialBody.contents;
             return;
         }
 
         if ('content_available' in initialBody) {
-            this.postBody.content_available = initialBody.content_available;
+            this.postBody.content_available = this.initialBody.content_available;
             return;
         }
 
         if ('template_id' in initialBody) {
-            this.postBody.template_id = initialBody.template_id;
+            this.postBody.template_id = this.initialBody.template_id;
             return;
         }
+
         throw 'Body must include one of the following fields: contents, content_available, template_id'
     }
 

@@ -14,20 +14,21 @@ const ALLOWED_FIELDS = ['contents', 'included_segments', 'excluded_segments', 'f
 class Notification {
     constructor(initialBody) {
         this.allowed_fields = ALLOWED_FIELDS;
+        this.initialBody = initialBody;
+        this.postBody = {};
         if (initialBody.constructor !== Object) {
             throw 'Body must be a JSON object';
         }
-        this.postBody = {};
         if ('contents' in initialBody) {
-            this.postBody.contents = initialBody.contents;
+            this.postBody.contents = this.initialBody.contents;
             return;
         }
         if ('content_available' in initialBody) {
-            this.postBody.content_available = initialBody.content_available;
+            this.postBody.content_available = this.initialBody.content_available;
             return;
         }
         if ('template_id' in initialBody) {
-            this.postBody.template_id = initialBody.template_id;
+            this.postBody.template_id = this.initialBody.template_id;
             return;
         }
         throw 'Body must include one of the following fields: contents, content_available, template_id';
