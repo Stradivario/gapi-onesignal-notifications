@@ -1,6 +1,6 @@
 {
   "name": "@gapi/onesignal-notifications",
-  "version": "0.7.176",
+  "version": "0.7.177",
   "repository": {
     "type": "git",
     "url": "https://github.com/Stradivario/onesignal-notifications.git"
