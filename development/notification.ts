@@ -10,7 +10,7 @@ const ALLOWED_FIELDS = ['contents', 'included_segments', 'excluded_segments', 'f
     'isAnyWeb', 'isChromeWeb', 'isFirefox', 'isSafari', 'isWP', 'isWP_WNS', 'isAdm', 'isChrome',
     'android_channel_id', 'existing_android_channel_id'];
 
-interface PostBody {
+export interface PostBody {
     contents: {
         [key: string]: string
     };
@@ -20,6 +20,8 @@ interface PostBody {
     included_segments: any;
     excluded_segments: any;
     filters: any;
+    app_ids;
+    app_id;
     include_player_ids: string[];
 };
 
@@ -35,8 +37,8 @@ interface ClientNotification {
 
 export class Notification {
     public initialBody: { contents?: any, content_available?: any, template_id?: any };
-    private postBody: PostBody;
-    private allowed_fields: string[] = ALLOWED_FIELDS;
+    public postBody: PostBody;
+    public allowed_fields: string[] = ALLOWED_FIELDS;
 
     constructor(initialBody: { contents?: any, content_available?: any, template_id?: any }) {
         this.initialBody = initialBody;

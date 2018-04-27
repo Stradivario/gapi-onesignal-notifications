@@ -4,6 +4,7 @@ import { Constants } from './constants';
 import { OneSignalClient } from './interfaces/client';
 import { GapiOneSignalConfig } from './onesignal.config';
 import { SendNotificationResponse } from './interfaces/notificationResponse';
+import { Notification } from './notification';
 
 function checkCredential(credentialName, credential): boolean {
     const ALLOWED_CREDENTIALS = [
@@ -116,7 +117,7 @@ export class GapiOneSignalClientService implements OneSignalClient {
         this.app = app;
     }
 
-    async sendNotification(notification): Promise<SendNotificationResponse> {
+    async sendNotification(notification: Notification): Promise<SendNotificationResponse> {
         if (!notification || !notification.postBody) {
             throw 'notification parameter must be a typeof Notification object.';
         }

@@ -1,11 +1,25 @@
+export interface PostBody {
+    contents: {
+        [key: string]: string;
+    };
+    data: any;
+    content_available: any;
+    template_id: any;
+    included_segments: any;
+    excluded_segments: any;
+    filters: any;
+    app_ids: any;
+    app_id: any;
+    include_player_ids: string[];
+}
 export declare class Notification {
     initialBody: {
         contents?: any;
         content_available?: any;
         template_id?: any;
     };
-    private postBody;
-    private allowed_fields;
+    postBody: PostBody;
+    allowed_fields: string[];
     constructor(initialBody: {
         contents?: any;
         content_available?: any;

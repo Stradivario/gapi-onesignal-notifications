@@ -1,6 +1,7 @@
 import { OneSignalClient } from './interfaces/client';
 import { GapiOneSignalConfig } from './onesignal.config';
 import { SendNotificationResponse } from './interfaces/notificationResponse';
+import { Notification } from './notification';
 export interface DevicesData<T> {
     players: Player<T>[];
 }
@@ -35,7 +36,7 @@ export declare class GapiOneSignalClientService implements OneSignalClient {
     basicRequest(url: string, apiKey: string, method: 'PUT' | 'POST' | 'GET' | 'DELETE', body: any): Promise<any>;
     setRootUrl(rootUrl: string): void;
     setApp(app: any): void;
-    sendNotification(notification: any): Promise<SendNotificationResponse>;
+    sendNotification(notification: Notification): Promise<SendNotificationResponse>;
     cancelNotification(notificationId: string): Promise<any>;
     viewNotification(notificationId: string): Promise<any>;
     viewNotifications(query: {
