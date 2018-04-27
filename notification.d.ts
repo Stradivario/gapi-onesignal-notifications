@@ -28,7 +28,7 @@ export declare class Notification {
     setParameter(name: string, value: any): void;
     setContent(contents: any): this;
     setIncludedSegments<T>(included_segments: T[]): this;
-    setExcludedSegments<T>(excluded_segments: string[]): this;
+    setExcludedSegments<T>(excluded_segments: T[]): this;
     setFilters(filters: any): this;
     setTargetDevices(include_player_ids: string[]): this;
 }

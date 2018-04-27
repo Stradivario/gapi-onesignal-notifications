@@ -86,7 +86,7 @@ export class Notification {
         return this;
     }
 
-    setExcludedSegments<T>(excluded_segments: string[]) {
+    setExcludedSegments<T>(excluded_segments: T[]) {
         this.postBody.excluded_segments = excluded_segments;
         return this;
     }
