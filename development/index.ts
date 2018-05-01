@@ -3,18 +3,17 @@
 import { GapiModule, Container, Token, GapiModuleWithServices } from "@gapi/core";
 import { GapiOneSignalClientService } from './client';
 import { GapiOneSignalConfig } from "./onesignal.config";
+import { GapiOneSignalConfigService } from "./onesignal.config.service";
 
-@GapiModule()
+@GapiModule({
+    services: [GapiOneSignalConfigService]
+})
 export class GapiOneSignalModule {
     static forRoot(config: GapiOneSignalConfig): GapiModuleWithServices {
+        Container.set(GapiOneSignalClientService, new GapiOneSignalClientService(config));
         return {
             gapiModule: GapiOneSignalModule,
-            services: [
-                {
-                    provide: GapiOneSignalClientService,
-                    useValue: new GapiOneSignalClientService(config)
-                }
-            ]
+            services: []
         };
     }
 }
