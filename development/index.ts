@@ -12,7 +12,9 @@ export class GapiOneSignalModule {
             services: [
                 {
                     provide: GapiOneSignalClientService,
-                    useFactory: () => new GapiOneSignalClientService(config)
+                    useFactory: () => {
+                        return new GapiOneSignalClientService(config);
+                    }
                 }
             ]
         };
