@@ -1,17 +1,21 @@
 
 
-import { GapiModule, Container, Token } from "@gapi/core";
+import { GapiModule, Container, Token, GapiModuleWithServices } from "@gapi/core";
 import { GapiOneSignalClientService } from './client';
 import { GapiOneSignalConfig } from "./onesignal.config";
-import { GapiOneSignalConfigService } from "./onesignal.config.service";
 
-@GapiModule({
-    services: [GapiOneSignalConfigService]
-})
+@GapiModule()
 export class GapiOneSignalModule {
-    static forRoot(config: GapiOneSignalConfig) {
-        Container.set(GapiOneSignalClientService, new GapiOneSignalClientService(config));
-        return GapiOneSignalModule;
+    static forRoot(config: GapiOneSignalConfig): GapiModuleWithServices {
+        return {
+            gapiModule: GapiOneSignalModule,
+            services: [
+                {
+                    provide: GapiOneSignalClientService,
+                    useFactory: () => new GapiOneSignalClientService(config)
+                }
+            ]
+        };
     }
 }
 
