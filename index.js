@@ -18,9 +18,7 @@ let GapiOneSignalModule = GapiOneSignalModule_1 = class GapiOneSignalModule {
             services: [
                 {
                     provide: client_1.GapiOneSignalClientService,
-                    useFactory: () => {
-                        return new client_1.GapiOneSignalClientService(config);
-                    }
+                    useValue: new client_1.GapiOneSignalClientService(config)
                 }
             ]
         };
