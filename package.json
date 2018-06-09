@@ -1,6 +1,6 @@
 {
   "name": "@gapi/onesignal-notifications",
-  "version": "0.7.265",
+  "version": "0.7.266",
   "repository": {
     "type": "git",
     "url": "https://github.com/Stradivario/onesignal-notifications.git"
@@ -24,7 +24,7 @@
   "module": "index.js",
   "typings": "index.d.ts",
   "peerDependencies": {
-    "@gapi/core": "^0.7.264",
+    "@gapi/core": "^0.7.266",
     "rxjs": "^5.5.6"
   },
   "dependencies": {
@@ -32,6 +32,6 @@
   },
   "devDependencies": {
     "@types/node": "^9.4.7",
-    "@gapi/core": "^0.7.264"
+    "@gapi/core": "^0.7.266"
   }
 }
