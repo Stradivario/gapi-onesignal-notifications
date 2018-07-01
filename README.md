@@ -17,12 +17,12 @@ $ npm install @gapi/onesignal-notifications
 ##### Import inside AppModule or CoreModule
 ```typescript
 
-import { GapiModule } from '@gapi/core';
-import { GapiOneSignalModule } from '@gapi/onesignal-notifications';
+import { Module } from '@rxdi/core';
+import { OneSignalModule } from '@gapi/onesignal-notifications';
 
-@GapiModule({
+@Module({
     imports: [
-        GapiOneSignalModule.forRoot({
+        OneSignalModule.forRoot({
             userAuthKey: 'ZmY2YjVkMjMtMjY0OC00Y2E2LTkxBTQtYTVmOWY1MmJhZDg1',
             app: {
                 appAuthKey: 'MTa4NGIzNjQtNGFkMy00MzY4AWJjZTctNzNjYzYyODgzZDhh',
@@ -40,15 +40,15 @@ export class CoreModule { }
 
 ```typescript
 
-import { Service } from '@gapi/core';
+import { Service } from '@rxdi/core';
 import { PurchasesType } from '../../../purchases/types/purchases.type';
-import { GapiOneSignalClientService, Notification } from '@gapi/onesignal-notifications';
+import { OneSignalClientService, Notification } from '@gapi/onesignal-notifications';
 
 @Service()
 export class NotificationService {
 
     constructor(
-        private client: GapiOneSignalClientService
+        private client: OneSignalClientService
     ) { }
 
     async createNotification(purchaseData: PurchasesType) {
@@ -79,18 +79,18 @@ export class NotificationService {
 
 }
 
-
 ```
 
 ##### Then use it inside your Gapi Application for example inside Effects:
 
 ```typescript
 
-import { OfType, GapiEffect, GapiPubSubService } from '@gapi/core';
+import { OfType, Effect } from '@rxdi/core';
+import { GapiPubSubService } from '@gapi/core';
 import { EffectTypes } from '../core/api-introspection/EffectTypes';
 import { NotificationService } from '../core/services/notification/notification.service';
 
-@GapiEffect()
+@Effect()
 export class YourCustomEffects {
 
     constructor(

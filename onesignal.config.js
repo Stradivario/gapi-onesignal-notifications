@@ -1,5 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-class GapiOneSignalConfig {
+class OneSignalConfig {
 }
-exports.GapiOneSignalConfig = GapiOneSignalConfig;
+exports.OneSignalConfig = OneSignalConfig;

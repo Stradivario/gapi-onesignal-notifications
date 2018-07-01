@@ -1,4 +1,4 @@
-export declare class GapiOneSignalConfig {
+export declare class OneSignalConfig {
     userAuthKey: string;
     app: {
         appAuthKey: string;

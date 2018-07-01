@@ -1,4 +1,13 @@
 "use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -10,6 +19,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const request = require("request");
 const constants_1 = require("./constants");
+const onesignal_config_1 = require("./onesignal.config");
+const core_1 = require("@rxdi/core");
 function checkCredential(credentialName, credential) {
     const ALLOWED_CREDENTIALS = [
         { name: 'userAuthKey', type: 'string' },
@@ -35,7 +46,7 @@ function checkCredential(credentialName, credential) {
 }
 ;
 ;
-class GapiOneSignalClientService {
+let OneSignalClientService = class OneSignalClientService {
     constructor(credentials) {
         if (typeof credentials !== 'object') {
             throw 'credentials parameter must be a JSON object';
@@ -221,5 +232,9 @@ class GapiOneSignalClientService {
             return yield this.basicRequest(csvUri, this.app.appAuthKey, 'POST', body);
         });
     }
-}
-exports.GapiOneSignalClientService = GapiOneSignalClientService;
+};
+OneSignalClientService = __decorate([
+    core_1.Service(),
+    __metadata("design:paramtypes", [onesignal_config_1.OneSignalConfig])
+], OneSignalClientService);
+exports.OneSignalClientService = OneSignalClientService;

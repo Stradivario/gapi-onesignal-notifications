@@ -1,16 +1,15 @@
 
 
-import { GapiModule, Container, Token, GapiModuleWithServices } from "@gapi/core";
-import { GapiOneSignalClientService } from './client';
-import { GapiOneSignalConfig } from "./onesignal.config";
+import { Module, Container, ModuleWithServices } from "@rxdi/core";
+import { OneSignalClientService } from './client';
+import { OneSignalConfig } from "./onesignal.config";
 
-@GapiModule()
-export class GapiOneSignalModule {
-    static forRoot(config: GapiOneSignalConfig): GapiModuleWithServices {
-        Container.set(GapiOneSignalClientService, new GapiOneSignalClientService(config));
+@Module()
+export class OneSignalModule {
+    static forRoot(config: OneSignalConfig): ModuleWithServices {
+        Container.set(OneSignalClientService, new OneSignalClientService(config));
         return {
-            gapiModule: GapiOneSignalModule,
-            services: []
+            module: OneSignalModule
         };
     }
 }

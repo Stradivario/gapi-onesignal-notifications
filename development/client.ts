@@ -2,12 +2,13 @@
 import * as request from 'request';
 import { Constants } from './constants';
 import { OneSignalClient } from './interfaces/client';
-import { GapiOneSignalConfig } from './onesignal.config';
+import { OneSignalConfig } from './onesignal.config';
 import { SendNotificationResponse } from './interfaces/notificationResponse';
 import { Notification } from './notification';
+import { Service } from '@rxdi/core';
 
 function checkCredential(credentialName, credential): boolean {
-    const ALLOWED_CREDENTIALS = [
+    const ALLOWED_CREDENTIALS: any = [
         { name: 'userAuthKey', type: 'string' },
         { name: 'app', type: 'object', requiredFields: ['appAuthKey', 'appId'] },
         { name: 'apps', type: 'object' }
@@ -58,14 +59,14 @@ export interface Player<T> {
     ip: any;
 }
 
-
-export class GapiOneSignalClientService implements OneSignalClient {
+@Service()
+export class OneSignalClientService implements OneSignalClient {
     API_URI: string;
     app: any;
     apps: any;
     userAuthKey: string;
 
-    constructor(credentials: GapiOneSignalConfig) {
+    constructor(credentials: OneSignalConfig) {
 
         if (typeof credentials !== 'object') {
             throw 'credentials parameter must be a JSON object'

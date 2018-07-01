@@ -9,21 +9,20 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@gapi/core");
+const core_1 = require("@rxdi/core");
 const client_1 = require("./client");
-let GapiOneSignalModule = GapiOneSignalModule_1 = class GapiOneSignalModule {
+let OneSignalModule = OneSignalModule_1 = class OneSignalModule {
     static forRoot(config) {
-        core_1.Container.set(client_1.GapiOneSignalClientService, new client_1.GapiOneSignalClientService(config));
+        core_1.Container.set(client_1.OneSignalClientService, new client_1.OneSignalClientService(config));
         return {
-            gapiModule: GapiOneSignalModule_1,
-            services: []
+            module: OneSignalModule_1
         };
     }
 };
-GapiOneSignalModule = GapiOneSignalModule_1 = __decorate([
-    core_1.GapiModule()
-], GapiOneSignalModule);
-exports.GapiOneSignalModule = GapiOneSignalModule;
+OneSignalModule = OneSignalModule_1 = __decorate([
+    core_1.Module()
+], OneSignalModule);
+exports.OneSignalModule = OneSignalModule;
 __export(require("./notification"));
 __export(require("./client"));
-var GapiOneSignalModule_1;
+var OneSignalModule_1;

@@ -1,5 +1,5 @@
 import { OneSignalClient } from './interfaces/client';
-import { GapiOneSignalConfig } from './onesignal.config';
+import { OneSignalConfig } from './onesignal.config';
 import { SendNotificationResponse } from './interfaces/notificationResponse';
 import { Notification } from './notification';
 export interface DevicesData<T> {
@@ -27,12 +27,12 @@ export interface Player<T> {
     test_type: any;
     ip: any;
 }
-export declare class GapiOneSignalClientService implements OneSignalClient {
+export declare class OneSignalClientService implements OneSignalClient {
     API_URI: string;
     app: any;
     apps: any;
     userAuthKey: string;
-    constructor(credentials: GapiOneSignalConfig);
+    constructor(credentials: OneSignalConfig);
     basicRequest(url: string, apiKey: string, method: 'PUT' | 'POST' | 'GET' | 'DELETE', body: any): Promise<any>;
     setRootUrl(rootUrl: string): void;
     setApp(app: any): void;
