@@ -9,6 +9,7 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
+var OneSignalModule_1;
 const core_1 = require("@rxdi/core");
 const client_1 = require("./client");
 let OneSignalModule = OneSignalModule_1 = class OneSignalModule {
@@ -25,4 +26,3 @@ OneSignalModule = OneSignalModule_1 = __decorate([
 exports.OneSignalModule = OneSignalModule;
 __export(require("./notification"));
 __export(require("./client"));
-var OneSignalModule_1;

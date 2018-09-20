@@ -1,4 +1,4 @@
-import { SendNotificationResponse } from "development/interfaces";
+import { SendNotificationResponse } from "./notificationResponse";
 export interface OneSignalClient {
     setRootUrl(rootUrl: string): void;
     setApp(app: any): void;
