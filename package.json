@@ -24,7 +24,7 @@
   "module": "index.js",
   "typings": "index.d.ts",
   "dependencies": {
-    "request": "^2.85.0"
+    "request": "^2.87.0"
   },
   "devDependencies": {
     "@types/node": "^9.4.7",
