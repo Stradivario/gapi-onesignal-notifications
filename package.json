@@ -28,6 +28,6 @@
   },
   "devDependencies": {
     "@types/node": "^9.4.7",
-    "@rxdi/core": "^0.0.341"
+    "@rxdi/core": "^0.0.349"
   }
 }
