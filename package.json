@@ -26,7 +26,7 @@
     "url": "http://gitlab.youvolio.com/gapi/onesignal-notifications/issues"
   },
   "dependencies": {
-    "request": "^2.88.0"
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "@rxdi/core": "0.7.41",
